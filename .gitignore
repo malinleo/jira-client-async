@@ -1,0 +1,25 @@
+### https://github.com/github/gitignore/blob/main/Python.gitignore
+### VisualStudioCode template
+.vscode/*
+!.vscode/recommended_settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Local History for Visual Studio Code
+.history/
+
+### Python template
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Unit test
+.pytest_cache

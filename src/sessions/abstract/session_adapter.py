@@ -1,5 +1,6 @@
 import http
 import typing
+
 from . import response
 
 
@@ -16,7 +17,7 @@ class AsyncSessionAdapterProtocol(typing.Protocol):
         data: dict[str, typing.Any] | None = None,
         query_params: dict[str, str] | None = None,
         **kwargs: typing.Any,
-    ) -> response.ResponseProtocol:
+    ) -> response.ResponseProxyProtocol:
         """Perform request with given method."""
         ...
 
@@ -34,7 +35,7 @@ class SyncSessionAdapterProtocol(typing.Protocol):
         data: dict[str, typing.Any] | None = None,
         query_params: dict[str, str] | None = None,
         **kwargs: typing.Any,
-    ) -> response.ResponseProtocol:
+    ) -> response.ResponseProxyProtocol:
         """Perform request with given method."""
         ...
 

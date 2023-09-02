@@ -1,1 +1,1 @@
-from .aiohttp_adapter import AioHTTPAdapter
+from .aiohttp import AioHTTPAdapter

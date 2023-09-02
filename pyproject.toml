@@ -1,0 +1,63 @@
+[tool.poetry]
+name = "jira-client-async"
+version = "0.0.1"
+description = ""
+authors = ["malinleo <lyonyamalin84@gmail.com>"]
+license = "LICENSE"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+aiohttp = "^3.8.5"
+invoke = "^2.2.0"
+setuptools = "^68.1.2"
+wheel = "^0.41.2"
+flake8-pyproject = "^1.2.3"
+mypy = "^1.5.1"
+
+[tool.poetry.group.dev.dependencies]
+rich = "^13.5.2"
+pytest = "^7.4.1"
+pytest-xdist = "^3.3.1"
+pre-commit = "^3.3.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+line_length = 79
+multi_line_output = 3
+py_version = 311
+skip = [".venv"]
+include_trailing_comma = true
+
+[tool.flake8]
+# https://www.flake8rules.com/
+ignore = [
+# https://www.flake8rules.com/rules/W503.html
+  "W503",
+# https://www.flake8rules.com/rules/W504.html
+  "W504",
+# https://github.com/m-burst/flake8-pytest-style/blob/master/docs/rules/PT004.md
+  "PT004",
+# Missing docstring in public module
+  "D100",
+# Missing docstring in magic method
+  "D105",
+# Missing docstring in public nested
+  "D106",
+# Missing docstring in __init__
+  "D107",
+# Manually surrounded by quotes, consider using the `!r` conversion flag
+  "B028"
+]
+inline-quotes = "double"
+statistics = true
+count = true
+max-complexity = 10
+pytest-fixture-no-parentheses = true
+pytest-parametrize-names-type = "list"
+pytest-parametrize-values-type = "list"
+pytest-parametrize-values-row-type = "list"
+exclude = ["**/__init__.py"]

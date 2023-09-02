@@ -1,8 +1,10 @@
 import http
 import typing
-from . import abstract, exceptions
+
 import aiohttp
-from aiohttp.client_exceptions import ClientError
+
+from .. import abstract
+from . import response
 
 
 class AioHTTPAdapter(abstract.AsyncSessionAdapterProtocol):
@@ -19,7 +21,8 @@ class AioHTTPAdapter(abstract.AsyncSessionAdapterProtocol):
         data: dict[str, typing.Any] | None = None,
         query_params: dict[str, str] | None = None,
         **kwargs: typing.Any,
-    ) -> aiohttp.ClientResponse:
+    ) -> response.AioHTTPResponseProxy:
+        """Perform request with `aiohttp` session."""
         async with self._session.request(
             method=method.value,
             url=url,
@@ -27,5 +30,5 @@ class AioHTTPAdapter(abstract.AsyncSessionAdapterProtocol):
             data=data or {},
             query_params=query_params or {},
             **kwargs,
-        ) as response:
-            return response
+        ) as resp:
+            return response.AioHTTPResponseProxy(resp)
